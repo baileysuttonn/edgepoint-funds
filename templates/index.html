@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>EdgePoint Fund Comparison</title>
+    <style>
+        body{
+            font-family:'Inter', sans-serif;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #1a1a1a;
+            border-bottom: 3px solid #e8630a;
+            padding-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+        }
+
+        .fund-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .fund-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-top: 4px solid #e8630a;
+        }
+
+        .fund-card h2 {
+            font-size:1.1rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-family: Georgia, serif
+        }
+
+        .label {
+            font-size: 0.7rem;
+            text-transform:uppercase;
+            color: #999;
+            letter-spacing:0.05em;
+            margin-top: 12px;
+            margin-bottom:3px
+        }
+
+        .fund-card p {
+            font-size: 0.85rem;
+            color: #444;
+            line-height:1.5;
+            margin: 0;
+        }
+
+        .accredited-badge {
+            background: #fff3cd;
+            border: 1px solid #e8630a;
+            border-radius:4px;
+            padding:8px;
+            font-size: 0.8rem;
+            margin-top:12px
+        }
+    </style>
+ </head> 
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+ <body>
+    <h1>EdgePoint Fund Comparison Tool</h1>
+    <p style="color: #999; font-size: 0.85rem; margin-top: -10px;">Built by Bailey Sutton</p>
+<div class="fund-grid">
+{% for fund in funds %}
+    <div class="fund-card">
+        <h2>{{ fund.name }}</h2>
+        <div class="label">Focus</div>
+        <p>{{ fund.focus }}</p>
+        <div class="label">Investor Profile</div>
+        <p>{{ fund.investor_profile }}</p>
+        <div class="label">Not For</div>
+        <p>{{ fund.not_for }}</p>
+        <div class="label">The Edge</div>
+        <p>{{ fund.edgepoint_edge }}</p>
+        <div class="label">Tradeoff</div>
+        <p>{{ fund.tradeoff }}</p>
+        {% if fund.accredited_only %}
+        <div class="accredited-badge">
+            ⚠️ Accredited investors only — minimum investment: {{ fund.min_investment }}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+ </body>  
+</html>
