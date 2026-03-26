@@ -15,7 +15,7 @@
             border-bottom: 3px solid #e8630a;
             padding-bottom: 10px;
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2.9rem;
         }
 
         .fund-grid {
@@ -79,13 +79,13 @@
         <p>{{ fund.investor_profile }}</p>
         <div class="label">Not For</div>
         <p>{{ fund.not_for }}</p>
-        <div class="label">The Edge</div>
+        <div class="label">EdgePoint Edge</div>
         <p>{{ fund.edgepoint_edge }}</p>
         <div class="label">Tradeoff</div>
         <p>{{ fund.tradeoff }}</p>
         {% if fund.accredited_only %}
         <div class="accredited-badge">
-            ⚠️ Accredited investors only — minimum investment: {{ fund.min_investment }}
+            ⚠️ Accredited investors only: minimum investment: {{ fund.min_investment }}
         </div>
         {% endif %}
     </div>
